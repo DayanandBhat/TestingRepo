@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root Signature="{5DCBAC3B-D39C-497C-9BE8-744CBADD37AA}" NameMappingVersion="7" SaveImages="0">
+	<Storages Current="0">
+		<Child Name="Default Configuration" />
+	</Storages>
+	<Nodes Name="NameMapping" Key="{BE401E45-B2D6-4FBA-931A-C2117D5C51AD}">
+		<Children>
+			<Child Name="Sys" Key="{FE4D32C2-FC15-41AE-AC49-8C21D7A0DC70}">
+				<Properties>
+					<Property Name="Name">
+						<Value Value="Sys" />
+					</Property>
+				</Properties>
+				<Children>
+					<Child Name="browser" Key="{BF0C2432-E7D9-4413-B439-BB2BF501FF37}">
+						<Properties>
+							<Property Name="ObjectType">
+								<Value Value="Browser" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="BrowserWindow" Key="{B0E4CE54-7B5B-4730-B12E-BC0C09DDEFE5}">
+								<Image FileName="-506622573" Left="-8" Top="-8" Right="1374" Bottom="736" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="BrowserWindow" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="0" Type="0" />
+									</Property>
+								</Properties>
+							</Child>
+							<Child Name="pageParabankRegisterForFreeOnlin" Key="{076FA139-3566-4975-AC50-1E00626907F5}">
+								<Image FileName="-506622573" Left="0" Top="87" Right="1366" Bottom="728" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="Page" />
+									</Property>
+									<Property Name="URL">
+										<Value Value="https://parabank.parasoft.com/parabank/register.htm" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="formCustomerform" Key="{E0A81CD4-CA92-4F46-9FA6-3054A669620D}">
+										<Image FileName="-506622573" Left="524" Top="249" Right="1035" Bottom="592" />
+										<Selectors>
+											<Selector>
+												<Value Value="#customerForm" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[contains(., &apos;First Name:&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@action=&apos;register.htm&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//div[@id=&apos;rightPanel&apos;]/form" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerFirstname" Key="{71D9006F-DB90-4B2F-9BFA-BE9ED4DD7331}">
+										<Image FileName="-506622573" Left="655" Top="258" Right="861" Bottom="276" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.firstName&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerLastname" Key="{9A2CCC96-6EF1-4C44-8A02-AC94FB195C8B}">
+										<Image FileName="2055834172" Left="655" Top="282" Right="861" Bottom="300" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.lastName&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[2]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[2]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[2]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[2]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerAddressStreet" Key="{878AE822-C09E-4DA1-9884-40190760B534}">
+										<Image FileName="-205249175" Left="655" Top="306" Right="861" Bottom="324" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.address.street&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[3]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[3]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[3]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[3]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerAddressCity" Key="{96ACAB34-EEB9-4332-A5FF-CA6CE62B123D}">
+										<Image FileName="-1954797936" Left="655" Top="430" Right="861" Bottom="448" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.address.city&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[4]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[4]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[4]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[4]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerAddressState" Key="{A5C0EDD9-CB68-4FE6-8631-44B7A12885FB}">
+										<Image FileName="1970460171" Left="655" Top="454" Right="861" Bottom="472" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.address.state&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[5]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[5]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[5]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[5]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerAddressZipcode" Key="{7C4186B7-7651-49E7-B8A2-CF38217EE6B5}">
+										<Image FileName="1673078234" Left="655" Top="478" Right="861" Bottom="496" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.address.zipCode&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[6]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[6]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[6]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[6]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerPhonenumber" Key="{F9A5C288-98EF-43F3-9446-B8315DD51C90}">
+										<Image FileName="-1644718288" Left="655" Top="502" Right="861" Bottom="520" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.phoneNumber&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[7]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[7]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[7]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[7]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerSsn" Key="{D793B420-F23B-4B32-9AA8-A53A7852A709}">
+										<Image FileName="-1397588896" Left="655" Top="526" Right="861" Bottom="544" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.ssn&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[8]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[8]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[8]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[8]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textboxCustomerUsername" Key="{D6D2A7C8-23AC-4F4E-8950-A9FD4B9E144A}">
+										<Image FileName="95862418" Left="655" Top="574" Right="861" Bottom="592" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.username&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[10]/td/input[@type=&apos;text&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[10]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[10]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[10]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="passwordboxCustomerPassword" Key="{B8F0B716-FC36-499F-A53A-C11A509A8A0C}">
+										<Image FileName="-1558676374" Left="655" Top="598" Right="861" Bottom="616" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@name=&apos;customer.password&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[11]/td/input[@type=&apos;password&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[11]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[11]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[11]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="passwordboxRepeatedpassword" Key="{56F8252C-4780-474C-AD8F-98FE7F00D372}">
+										<Image FileName="-1701095215" Left="655" Top="622" Right="861" Bottom="640" />
+										<TypeInfo Item0="{FB472894-9ADC-488C-9EEA-70EFE7685293}" />
+										<Selectors>
+											<Selector>
+												<Value Value="#repeatedPassword" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@name=&apos;repeatedPassword&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[12]/td/input[@type=&apos;password&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[12]/td/input[contains(@class, &apos;input&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[12]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[12]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="submitbuttonRegister" Key="{360A8AB9-2AFE-4190-BA5F-E825355E9090}">
+										<Image FileName="-1361298932" Left="655" Top="646" Right="738" Bottom="665" />
+										<TypeInfo Item0="{BB8DD8DC-EA43-405C-BFAC-423DB85DFB47}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//input[@value=&apos;Register&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//td/input[@type=&apos;submit&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//td/input[contains(@class, &apos;button&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//form[@id=&apos;customerForm&apos;]//tr[13]/td/input" />
+											</Selector>
+											<Selector>
+												<Value Value="//tr[13]/td/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="linkLogOut" Key="{09AECDB0-27F6-4833-A732-F5770E111EC7}">
+										<Image FileName="1909301672" Left="344" Top="567" Right="508" Bottom="591" />
+										<TypeInfo Item0="{CD548677-83A4-4E21-9A70-D1DD2B017453}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//a[.=&apos;Log Out&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//div[@id=&apos;leftPanel&apos;]//li[8]/a" />
+											</Selector>
+											<Selector>
+												<Value Value="//li[8]/a" />
+											</Selector>
+										</Selectors>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="pageParabankWelcomeOnlineBanking" Key="{DDA2017E-2AB9-4806-A412-173DE92B0A67}">
+								<Image FileName="1530400480" Left="0" Top="87" Right="1366" Bottom="728" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="Page" />
+									</Property>
+									<Property Name="URL">
+										<Value Value="https://parabank.parasoft.com/parabank/index.htm*" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="linkRegister" Key="{C07808D0-7C64-494C-85F7-2A904EEF4716}">
+										<Image FileName="1564118717" Left="329" Top="519" Right="377" Bottom="534" />
+										<TypeInfo Item0="{90438B89-D52D-4546-9424-EA0632D365D5}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//a[.=&apos;Register&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//div[@id=&apos;leftPanel&apos;]//p[2]/a" />
+											</Selector>
+											<Selector>
+												<Value Value="//p[2]/a" />
+											</Selector>
+										</Selectors>
+									</Child>
+								</Children>
+							</Child>
+						</Children>
+					</Child>
+				</Children>
+			</Child>
+		</Children>
+	</Nodes>
+	<LogicalNodes Name="Aliases" Owner="{BE401E45-B2D6-4FBA-931A-C2117D5C51AD}">
+		<Child Name="browser" Owner="{BF0C2432-E7D9-4413-B439-BB2BF501FF37}">
+			<Child Name="BrowserWindow" Owner="{B0E4CE54-7B5B-4730-B12E-BC0C09DDEFE5}" />
+			<Child Name="pageParabankRegisterForFreeOnlin" Owner="{076FA139-3566-4975-AC50-1E00626907F5}">
+				<Child Name="formCustomerform" Owner="{E0A81CD4-CA92-4F46-9FA6-3054A669620D}">
+					<Child Name="textboxCustomerFirstname" Owner="{71D9006F-DB90-4B2F-9BFA-BE9ED4DD7331}" />
+					<Child Name="textboxCustomerLastname" Owner="{9A2CCC96-6EF1-4C44-8A02-AC94FB195C8B}" />
+					<Child Name="textboxCustomerAddressStreet" Owner="{878AE822-C09E-4DA1-9884-40190760B534}" />
+					<Child Name="textboxCustomerAddressCity" Owner="{96ACAB34-EEB9-4332-A5FF-CA6CE62B123D}" />
+					<Child Name="textboxCustomerAddressState" Owner="{A5C0EDD9-CB68-4FE6-8631-44B7A12885FB}" />
+					<Child Name="textboxCustomerAddressZipcode" Owner="{7C4186B7-7651-49E7-B8A2-CF38217EE6B5}" />
+					<Child Name="textboxCustomerPhonenumber" Owner="{F9A5C288-98EF-43F3-9446-B8315DD51C90}" />
+					<Child Name="textboxCustomerSsn" Owner="{D793B420-F23B-4B32-9AA8-A53A7852A709}" />
+					<Child Name="textboxCustomerUsername" Owner="{D6D2A7C8-23AC-4F4E-8950-A9FD4B9E144A}" />
+					<Child Name="passwordboxCustomerPassword" Owner="{B8F0B716-FC36-499F-A53A-C11A509A8A0C}" />
+					<Child Name="passwordboxRepeatedpassword" Owner="{56F8252C-4780-474C-AD8F-98FE7F00D372}" />
+					<Child Name="submitbuttonRegister" Owner="{360A8AB9-2AFE-4190-BA5F-E825355E9090}" />
+				</Child>
+				<Child Name="linkLogOut" Owner="{09AECDB0-27F6-4833-A732-F5770E111EC7}" />
+			</Child>
+			<Child Name="pageParabankWelcomeOnlineBanking" Owner="{DDA2017E-2AB9-4806-A412-173DE92B0A67}">
+				<Child Name="linkRegister" Owner="{C07808D0-7C64-494C-85F7-2A904EEF4716}" />
+			</Child>
+		</Child>
+	</LogicalNodes>
+</Root>

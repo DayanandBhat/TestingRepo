@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Modules">
+			<folder name="UserRegistration">
+				<child name="BusinessFunctions" key="{6DCB4F43-EF43-41E4-BFF3-8A1555F72556}" path="BusinessFunctions.js" />
+				<child name="Driver" key="{FDCB45AE-5E22-4EDA-986F-F649B7EB5F17}" path="Driver.js" />
+			</folder>
+		</folder>
+		<child name="CommonFunctions" key="{E5B2988F-EC9B-4E80-9E1B-FB98C2593F21}" path="CommonFunctions.js" />
+		<child name="Events" key="{301AD899-31F0-4F68-9D08-5094D9193D94}" path="Events.js" />
+	</children>
+</Root>

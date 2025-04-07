@@ -1,0 +1,4 @@
+URL=https://parabank.parasoft.com/
+Browser=Chrome
+ResultFilePath=E:\TestAutomation\Result\Result.txt
+BuildNumber=001

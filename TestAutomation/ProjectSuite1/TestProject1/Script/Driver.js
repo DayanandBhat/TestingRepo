@@ -1,0 +1,61 @@
+﻿//USEUNIT CommonFunctions
+//USEUNIT BusinessFunctions
+
+
+/*
+====================================================================================================
+ FUNCTION NAME     : TC01()
+ DESCRIPTION       : Function to register new user by adding user informations. Create User name and password
+ INPUT PARAMETERS  : strXLPath : Path of input excel file, strXLFileName : Input excel file name, strSheetName: SheetName
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : Excel Object
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      :                                                          
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+======================================================================================================
+*/
+function TC01_RegisterUser(strTestName,strXLFileName,strSheetName)
+{
+ try{ 
+  var objDict = fnReadXlInputData(strTestName,strXLFileName,strSheetName)
+  fnOpenApplication();
+  fnRegisterUser(objDict.Item("FirstName"),objDict.Item("LastName"),objDict.Item("Address"),objDict.Item("City"),objDict.Item("State"),objDict.Item("ZipCode"),objDict.Item("Phone"),objDict.Item("SSN"),objDict.Item("UserName"),objDict.Item("Password"),objDict.Item("Confirm"));
+  var objLogout = Aliases.browser.pageParabankRegisterForFreeOnlin.linkLogOut;
+ if(objDict.Item("ṬestCaseType") == "Positive")
+ {
+  if(objLogout.Exists && objLogout.VisibleOnScreen)
+  {
+   Log.Message("PASS::User Registration is successful")
+   Log.Picture(Aliases.browser.pageParabankRegisterForFreeOnlin.Picture(),"Picture");
+  }
+  else
+   Log.Error("FAIL::User Registration Failed"); 
+ }
+ if(objDict.Item("ṬestCaseType") == "Negative" && objDict.Item("ExpectedMessage") != null)
+ {
+  if(objLogout.Exists && objLogout.VisibleOnScreen)
+   Log.Error("FAIL::User Registration for negative scenario Failed"); 
+  else 
+   {  
+   var objMsg = Aliases.browser.pageParabankRegisterForFreeOnlin.FindElement("//span[.='"+objDict.Item("ExpectedMessage")+".']")
+   if(objMsg.Exists)
+    Log.Message("PASS::User Registration for negative scenario is successful.Expected Message:"+objDict.Item("ExpectedMessage")+" Verified")
+    Log.Picture(Aliases.browser.pageParabankRegisterForFreeOnlin.Picture(),"Picture");
+   } 
+ }
+
+ 
+ 
+  } catch(err)
+  {
+    Log.Error("FAIL:: "+err.description);
+  }  
+}
+
+function test111()
+{
+Log.Picture(Aliases.browser.pageParabankRegisterForFreeOnlin.Picture(),"Picture");
+}

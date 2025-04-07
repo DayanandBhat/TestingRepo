@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{E7ABA87F-E873-4452-9921-6F4BAAEB2BCC}" version="1400" key="{57F9AF1A-16B3-40E9-A1D2-6CF4216136DF}" typeId="{E7ABA87F-E873-4452-9921-6F4BAAEB2BCC}">
+	<config nodeName="Events" tlbHistory="" />
+	<testData />
+	<data />
+	<children>
+		<child key="{20A22E83-87B2-4316-BEF3-ADC1F5B0F8EC}">
+			<config nodeName="EventControl1" lastOpenedTLB="" generatedCLSID="{F447F719-FCF0-4989-B6F2-FE2D4E34732D}" generatedTLBKey="{E50112C1-D4E8-42C1-9555-21499D6B50DE}" generatedEventsKey="{FCE38AEA-667D-4EE6-8BA7-F9DAFFBD6DA1}" generatedTLBDesc="TestComplete EventControl1 Control - 4/5/2025 10:46:02 PM">
+				<eventInfo infoTLBVer="version.dll" infoGUID="{F5856842-4323-49FD-B806-36E22179EF8A}" infoID="1610743808" infoControlName="Test Engine Events" infoEventName="OnStartTest" infoEventRealName="OnStartTest" infoDescription="Occurs when TestComplete starts running a test (whether it is run from the UI or command line, or as a project test item)." />
+				<eventInfo infoTLBVer="version.dll" infoGUID="{F5856842-4323-49FD-B806-36E22179EF8A}" infoID="1610743810" infoControlName="Test Engine Events" infoEventName="OnStartTestCase" infoEventRealName="OnStartTestCase" infoDescription="Occurs when TestComplete starts running a test case." />
+				<eventInfo infoTLBVer="version.dll" infoGUID="{F5856842-4323-49FD-B806-36E22179EF8A}" infoID="1610743809" infoControlName="Test Engine Events" infoEventName="OnStopTest" infoEventRealName="OnStopTest" infoDescription="Occurs when TestComplete stops running a test or when the execution of a test item is over." />
+				<eventInfo infoTLBVer="version.dll" infoGUID="{4C03E9F2-BB22-4E21-B2E7-E51B754FCBBA}" infoID="1610743811" infoControlName="General Events" infoEventName="OnLogError" infoEventRealName="OnLogError" infoDescription="Occurs when an error message is posted to the test log." />
+				<eventInfo infoTLBVer="version.dll" infoGUID="{F5856842-4323-49FD-B806-36E22179EF8A}" infoID="1610743811" infoControlName="Test Engine Events" infoEventName="OnStopTestCase" infoEventRealName="OnStopTestCase" infoDescription="Occurs when TestComplete stops running a test case or when the execution of a test case is over." />
+				<eventInfo infoTLBVer="version.dll" infoGUID="{4C03E9F2-BB22-4E21-B2E7-E51B754FCBBA}" infoID="1610743818" infoControlName="General Events" infoEventName="OnUnexpectedWindow" infoEventRealName="OnUnexpectedWindow" infoDescription="Occurs when an unexpected window appears." />
+				<handlerInfo handlerName="EventControl1_OnStopTest" handlerMoniker="{301AD899-31F0-4F68-9D08-5094D9193D94}EventControl1_OnStopTest" handlerEventName="OnStopTest" handlerRealIID="{F5856842-4323-49FD-B806-36E22179EF8A}" handlerRealDispID="1610743809" />
+				<handlerInfo handlerName="EventControl1_OnStopTestCase" handlerMoniker="{301AD899-31F0-4F68-9D08-5094D9193D94}EventControl1_OnStopTestCase" handlerEventName="OnStopTestCase" handlerRealIID="{F5856842-4323-49FD-B806-36E22179EF8A}" handlerRealDispID="1610743811" />
+				<handlerInfo handlerName="EventControl1_OnStartTest" handlerMoniker="{301AD899-31F0-4F68-9D08-5094D9193D94}EventControl1_OnStartTest" handlerEventName="OnStartTest" handlerRealIID="{F5856842-4323-49FD-B806-36E22179EF8A}" handlerRealDispID="1610743808" />
+				<handlerInfo handlerName="EventControl1_OnStartTestCase" handlerMoniker="{301AD899-31F0-4F68-9D08-5094D9193D94}EventControl1_OnStartTestCase" handlerEventName="OnStartTestCase" handlerRealIID="{F5856842-4323-49FD-B806-36E22179EF8A}" handlerRealDispID="1610743810" />
+				<handlerInfo handlerName="EventControl1_OnUnexpectedWindow" handlerMoniker="{301AD899-31F0-4F68-9D08-5094D9193D94}EventControl1_OnUnexpectedWindow" handlerEventName="OnUnexpectedWindow" handlerRealIID="{4C03E9F2-BB22-4E21-B2E7-E51B754FCBBA}" handlerRealDispID="1610743818" />
+				<handlerInfo handlerName="EventControl1_OnLogError" handlerMoniker="{301AD899-31F0-4F68-9D08-5094D9193D94}EventControl1_OnLogError" handlerEventName="OnLogError" handlerRealIID="{4C03E9F2-BB22-4E21-B2E7-E51B754FCBBA}" handlerRealDispID="1610743811" />
+			</config>
+			<testData />
+			<data />
+		</child>
+	</children>
+</Root>

@@ -1,0 +1,410 @@
+﻿/*
+====================================================================================================
+ FUNCTION NAME     : fnInputOpenXLSheet()
+ DESCRIPTION       : Function to open excel workbook(input Data Sheet)
+ INPUT PARAMETERS  : strXLPath : Path of input excel file, strXLFileName : Input excel file name, strSheetName: SheetName
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : Excel Object
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                        
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+======================================================================================================
+*/
+function fnOpenXLSheet(strXLPath, strXLFileName,strSheetName){
+  try
+  {
+    var objXL,strExcelPath;
+    strExcelPath = strXLPath + strXLFileName + ".xls"; 
+    objXL = DDT.ExcelDriver(strExcelPath,strSheetName,true);
+  }
+  catch(err)
+  {
+    Log.Error("FAIL:: "+err.description);
+  }
+  finally
+  {
+    return objXL;   
+  }
+} 
+
+/* 
+====================================================================================================
+ FUNCTION NAME     : fnCloseXLWorkbook()
+ DESCRIPTION       : Function to close excel workbook
+ INPUT PARAMETERS  : Nil
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : Nil
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                          
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    --------------------------------------------------------------- 
+======================================================================================================
+*/
+function fnCloseXLWorkbook(){
+ try{
+      {
+       DDT.CloseDriver(DDT.CurrentDriver.Name);      
+      }
+    } 
+  catch(err)
+  {
+    Log.Error("FAIL:: "+err.description);
+  }  
+}
+
+/*
+====================================================================================================
+ FUNCTION NAME     : fnReadXlInputData()
+ DESCRIPTION       : Function to read input data from a excel file(same as function fnReadXlInputData. Added fnOpenXLSheet to pass required sheet name )
+ INPUT PARAMETERS  : strXLPath : Path of input excel file, strXLFileName : Input excel file name ,strSheetName : Sheet name
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : dictionary object
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                          
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+======================================================================================================
+*/
+
+function fnReadXlInputData(strTestName,strXLFileName,strSheetName){
+  try
+  {    
+    var YsNTestFound = false;
+    var objXlFilePath, objXlApp, intTotalColsMapping, strData;   
+    var objExlDict = getActiveXObject("Scripting.Dictionary");
+    
+    if (objExlDict.Count > 0){
+      objExlDict.RemoveAll;
+    }    
+          
+    objXlFilePath = fnToFindRelativeEnvironmentPath("TestData");    
+    objXlApp = fnOpenXLSheet(objXlFilePath, strXLFileName,strSheetName);
+    intTotalColsMapping = DDT.CurrentDriver.ColumnCount;
+    
+    while (! DDT.CurrentDriver.EOF())
+    { 
+      strData = (objXlApp.Value(0));
+      if (strData == strTestName)
+      {
+        for (intCol = 1; intCol<intTotalColsMapping; intCol++)
+         {              
+           strKey = objXlApp.ColumnName(intCol);
+           strValue = objXlApp.Value(intCol);
+           objExlDict.Add (strKey, strValue);
+           YsNTestFound = true;
+         } 
+        break;          
+     }
+     else
+     {      
+       objXlApp.next();
+       YsNTestFound = false;
+     }     
+   }
+  
+   if (!YsNTestFound)
+    {
+      Log.Error("FAIL:: " + strTestName + " not found in Input data file. Please check");
+    }
+    
+   fnCloseXLWorkbook();
+ }
+ 
+ catch(err)
+ {
+   Log.Error("FAIL:: err.description");
+ }
+ 
+ finally
+ {
+   return objExlDict;   
+ }
+}
+
+/*
+====================================================================================================
+ FUNCTION NAME     : fnToFindRelativeEnvironmentPath()   
+ DESCRIPTION       : Function to get relative path for data folder and configFile folder
+ INPUT PARAMETERS  : strFldrName: Folder name either data or configFile
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : Return relative path for data or configFile folder if folder exists else null
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                    
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+====================================================================================================== 
+*/
+function fnToFindRelativeEnvironmentPath(strFldrName){
+  try 
+  {
+    var strRelativePath;
+    
+    
+     if(strFldrName == "TestData"){
+      var strProjectPath = Project.Path;
+      var strDataFilePath = strProjectPath+"TestData\\"
+      
+      if(aqFileSystem.Exists(strDataFilePath)){
+        strRelativePath = strDataFilePath;
+      }
+      else{
+        Log.error("FAIL :: Framework Error: Please Create Data folder");
+      }
+    }
+   
+   else if(strFldrName == "configFile"){
+      var strProjectPath = ProjectSuite.Path;
+       strRelativePath = strProjectPath+"ConfigFile\\configFile.txt";
+        
+    }
+  }
+  catch(err){
+    Log.Error("FAIL:: "+err.description);  
+  }
+  finally
+  { 
+    return(strRelativePath);
+  }    
+}
+/*
+====================================================================================================
+ FUNCTION NAME     : fnLoadPersonalProperties()
+ DESCRIPTION       : Function to read input data from a text file
+ INPUT PARAMETERS  : strFileName
+ RETURN VALUE      : Nil
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                          
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+======================================================================================================
+*/
+function fnLoadPersonalProperties(strFileName){
+  try
+  {    
+    var objFileSystem, objFile
+	  var strProps
+	  var strReadLine
+	  var strKey
+	  var strValue
+    var ForReading = 1;
+    var objPersonalPropsDD = getActiveXObject("Scripting.Dictionary");
+    if (objPersonalPropsDD.count > 0)
+    {
+		  objPersonalPropsDD.RemoveAll();
+    }  
+    objFileSystem = getActiveXObject("Scripting.FileSystemObject");
+    objFile = objFileSystem.OpenTextFile(strFileName, ForReading);
+   
+    while(! objFile.AtEndOfStream){
+      strReadLine = objFile.ReadLine();
+      strProps = strReadLine.split("=");
+      strKey = strProps[0];
+      strValue= strProps[1];
+      objPersonalPropsDD.Add(strKey, strValue);  
+    }
+   objFile.Close();
+ }
+  catch(err)
+  {
+    Log.Error("FAIL:: "+err.description);
+  }
+  finally
+  {  
+    return(objPersonalPropsDD);
+  } 
+}
+/*
+====================================================================================================
+ FUNCTION NAME     : fnOpenApplication()   
+ DESCRIPTION       : Function to open web application
+ INPUT PARAMETERS  : nil. Takes browser and URL from config file
+ RETURN VALUE      : nil. Execution will be stopped if fails to open application
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                    
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+====================================================================================================== 
+*/
+
+function fnOpenApplication()
+{
+  try{
+     fnCloseAllOpenedBrowsers();
+     var objconfig = fnToFindRelativeEnvironmentPath("configFile");
+     var objPersonalPropsDD = fnLoadPersonalProperties(objconfig);
+     var bBrowser = objPersonalPropsDD.Item("Browser");    
+     var URL = objPersonalPropsDD.Item("URL");
+     switch(bBrowser)
+     {
+       case "Chrome":
+       Browsers.Item(btChrome).Run(URL);
+       break;
+       
+       case "Firefox":
+       Browsers.Item(btFirefox).Run(URL);
+       break;
+       
+       case "Edge":
+       Browsers.Item(btEdge).Run(URL);
+       break;
+       
+       default:
+        Log.Error("Please pass correct browser type in config file like: Chrome,Firefox,Edge")
+     }
+
+     
+  }
+ 
+  catch(err)
+  {
+    Log.Error("FAIL:: "+err.description);
+    Log.Error("Failed to open Application. Hence stopping the application")
+    Runner.Stop();
+  }
+ 
+}
+/*
+====================================================================================================
+ FUNCTION NAME     : fnCloseAllOpenedBrowsers()   
+ DESCRIPTION       : Function to close all opened browsers
+ INPUT PARAMETERS  : nil. 
+ RETURN VALUE      : nil.
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                    
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+====================================================================================================== 
+*/
+
+function fnCloseAllOpenedBrowsers()
+{
+ try{ 
+  var browser = Sys.FindChild(Array("ObjectType","Exists"),Array("Browser",true),6,true)
+  while(browser.Exists)
+  {
+    browser.Close();
+    var browser = Sys.FindChild(Array("ObjectType","Exists"),Array("Browser",true),6,true)
+  }
+ } 
+   catch(err)
+  {
+    Log.Error("FAIL:: "+err.description); 
+  }  
+}
+
+/*
+====================================================================================================
+ FUNCTION NAME     : WriteToFile() 
+ DESCRIPTION       : Function to write line into text file
+ INPUT PARAMETERS  : AFileName,forType,strText
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : Nil
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                       
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+======================================================================================================
+*/
+ function WriteToFile(sPath,strText)
+{ 
+  try{ 
+   var objFile = aqFile.OpenTextFile(sPath, aqFile.faWrite, aqFile.ctUnicode,true);
+   objFile.WriteLine(strText);
+  
+    objFile.Close();
+  }catch(e)
+  {
+   Log.Error("FAILED::"+e.description);
+  }
+}
+/*
+====================================================================================================
+ FUNCTION NAME     : fnCreateFile()
+ DESCRIPTION       : This function is to create a file
+ INPUT PARAMETERS  : strFilePath:File path with extension of file
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : boolCreateFlag: True or False
+ AUTHOR            : Dayanand Bhat
+ DATE CREATED      : 05-Apr-2025                                                  
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+======================================================================================================
+*/
+function fnCreateFile(strFilePath)
+{
+  try
+  {
+    var boolCreateFlag = false
+    if(aqFile.Create(strFilePath))
+      boolCreateFlag = true
+  }
+  catch(e)
+  {
+    Log.Message("FAILED::: "+e.description);
+  }
+  finally
+  {
+    return boolCreateFlag;
+  }
+}
+/*
+====================================================================================================
+ FUNCTION NAME     : fnDeleteFile()
+ DESCRIPTION       : This function is to delete a file
+ INPUT PARAMETERS  : strFilePath:File path with extension of file
+ OUTPUT PARAMETERS : Nil
+ RETURN VALUE      : boolDeleteFlag: True or False
+ AUTHOR            : Dayanand
+ DATE CREATED      : 05-Apr-2025                                                  
+                                               MODIFICATION LOG
+                                               ------------------
+ DATE MODIFIED  AUTHOR               DESCRIPTION
+ -------------  -----------------    ---------------------------------------------------------------
+ 
+======================================================================================================
+*/
+function fnDeleteFile(strFilePath)
+{
+ try
+   {
+    var boolDeleteFlag = false
+    if(aqFileSystem.DeleteFile(strFilePath))
+     boolDeleteFlag = true
+   }
+ catch(e)
+  {
+   Log.Message("FAILED::: "+e.description);
+  }
+ finally
+  {
+    return boolDeleteFlag
+  }
+}
+
+

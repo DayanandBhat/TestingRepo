@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="cbb5b00a-4011-4d2c-bbf7-f0916d3c1486" name="APITestSuite1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="bc192b14-1b17-4411-80ce-35785b571678" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CapitalCity TestCase" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite>
